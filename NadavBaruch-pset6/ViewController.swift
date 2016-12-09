@@ -7,15 +7,18 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController {
     @IBOutlet weak var introduction: UITextView!
     @IBOutlet weak var countryCodeInput: UITextField!
     @IBOutlet weak var cityInput: UITextField!
     
+    // variables
     var shabbatTime: String = ""
     var place: String = ""
     var havdalaTime: String = ""
+    var fireShabbatTime: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()

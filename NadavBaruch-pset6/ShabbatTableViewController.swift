@@ -7,9 +7,16 @@
 //
 
 import UIKit
+import Firebase
 
-class ShabbatTableViewController: UIViewController {
+class ShabbatTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet weak var shabbatTable: UITableView!
 
+    // variables
+    var shabbatTime: String = ""
+    var place: [String] = []
+    var havdalaTime: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +28,20 @@ class ShabbatTableViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return place.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = self.shabbatTable.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ShabbatCell
+      
+        return cell
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
+    {
+        if editingStyle == .delete
+        {
+        }
+}
 
     /*
     // MARK: - Navigation
