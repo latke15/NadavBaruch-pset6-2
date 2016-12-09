@@ -1,0 +1,6 @@
+framework module Pods_NadavBaruch_pset6 {
+  umbrella header "Pods-NadavBaruch-pset6-umbrella.h"
+
+  export *
+  module * { export * }
+}
