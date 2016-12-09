@@ -11,19 +11,19 @@ import UIKit
 class SecondViewController: UIViewController {
     
     @IBOutlet weak var placeLabel: UILabel!
-    @IBOutlet weak var textCandle: UITextView!
     @IBOutlet weak var candleLighting: UILabel!
-//    var shabbatInfo = [String: AnyObject]()
+    @IBOutlet weak var havdalaLabel: UILabel!
+    
     var shabbatTime: String = ""
     var place: String = ""
+    var havdalaTime: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         candleLighting.text = shabbatTime
-        textCandle.text = "This shabbat starts at" + shabbatTime + "in" + place
-        textCandle.isEditable = false
         placeLabel.text = place
+        havdalaLabel.text = havdalaTime
         
     }
 
@@ -32,7 +32,6 @@ class SecondViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 

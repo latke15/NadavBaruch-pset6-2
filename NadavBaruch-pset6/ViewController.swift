@@ -9,17 +9,19 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var introduction: UITextView!
     @IBOutlet weak var countryCodeInput: UITextField!
     @IBOutlet weak var cityInput: UITextField!
     
     var shabbatTime: String = ""
     var place: String = ""
-    
-//    var shabbatInfo = [String: AnyObject]()
+    var havdalaTime: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        introduction.text = "Fill in your landcode and city and get the time shabbat starts at! Please make sure the landcode is in capital letters and the city starts with a capital letter!"
+        introduction.isEditable = false
     }
 
     @IBAction func checkShabbat(_ sender: Any) {
@@ -61,10 +63,13 @@ class ViewController: UIViewController {
 
             let items = myJSON.value(forKey: "items") as! NSArray
             self.place = myJSON.value(forKey: "title") as! String
-
-            let item = items[0] as! NSDictionary
             
-            self.shabbatTime = item.value(forKey: "title") as! String
+
+            let item0 = items[0] as! NSDictionary
+            let item2 = items[2] as! NSDictionary
+            
+            self.shabbatTime = item0.value(forKey: "title") as! String
+            self.havdalaTime = item2.value(forKey: "title") as! String
             
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: "secondVCID", sender: sender)
@@ -90,6 +95,7 @@ class ViewController: UIViewController {
             if let destination = segue.destination as? SecondViewController {
                 destination.shabbatTime = self.shabbatTime
                 destination.place = self.place
+                destination.havdalaTime = self.havdalaTime
             }
         }
 
