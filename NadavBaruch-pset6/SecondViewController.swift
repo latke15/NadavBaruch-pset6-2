@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
 
 class SecondViewController: UIViewController {
     
@@ -19,10 +20,11 @@ class SecondViewController: UIViewController {
     var shabbatTime: String = ""
     var place: String = ""
     var havdalaTime: String = ""
+    var details = [shabbatDetails]()
     
     // Firebase
-    var rootRef = FIRDatabase.database().reference()
-    var placeRef = FIRDatabase.database().reference(withPath: self.place)
+    var rootRef = FIRDatabase.database().reference().childByAutoId()
+//    var placeRef = FIRDatabase.database().reference(withPath: self.place)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,13 +34,11 @@ class SecondViewController: UIViewController {
         havdalaLabel.text = havdalaTime
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     @IBAction func addToFirebase(_ sender: Any) {
+        
+        self.details.insert(shabbatDetails(shabbatTime: self.shabbatTime, place: self.place, havdalaTime: self.havdalaTime), at: 0)
+        
         // Firebase
         let shabbatTimeRef = self.rootRef.child("shabbat time")
         shabbatTimeRef.setValue(self.shabbatTime)
@@ -49,23 +49,16 @@ class SecondViewController: UIViewController {
         
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "thirdVCID", sender: sender)
+            // segue contents to the rawtext variable in the the next view
+            func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+                // check if we go to 3rd VC
+                if segue.identifier == "thirdVCID" {
+                    if let destination = segue.destination as? ShabbatTableViewController {
+                        destination.place = [self.place]
+                        destination.details = self.details
+                    }
+                }
+            }
         }
     }
-    
-    // check if we go to 3rd VC
-    if segue.identifier == "thirdVCID" {
-        if let destination = segue.destination as? ShabbatTableViewController {
-        destination.place = self.place
-    }
-    }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

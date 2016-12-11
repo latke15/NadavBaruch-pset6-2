@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
 
 class ViewController: UIViewController {
     @IBOutlet weak var introduction: UITextView!
@@ -65,14 +66,13 @@ class ViewController: UIViewController {
             let myJSON = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
 
             let items = myJSON.value(forKey: "items") as! NSArray
-            self.place = myJSON.value(forKey: "title") as! String
-            
 
             let item0 = items[0] as! NSDictionary
             let item2 = items[2] as! NSDictionary
             
             self.shabbatTime = item0.value(forKey: "title") as! String
             self.havdalaTime = item2.value(forKey: "title") as! String
+            self.place = myJSON.value(forKey: "title") as! String
             
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: "secondVCID", sender: sender)

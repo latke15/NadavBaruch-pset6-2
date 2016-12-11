@@ -16,6 +16,10 @@ class ShabbatTableViewController: UIViewController, UITableViewDelegate, UITable
     var shabbatTime: String = ""
     var place: [String] = []
     var havdalaTime: String = ""
+    var details = [shabbatDetails]()
+    
+    // Firebase
+    var databaseRef = FIRDatabase.database().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +33,16 @@ class ShabbatTableViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return place.count
+        return details.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.shabbatTable.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ShabbatCell
+        
+//        cell.cityLabel = databaseRef.queryOrderedByKey().observe(.childAdded, with: {
+//            snapshot in
+//            
+//            cell.cityLabel = snapshot.value![details[indexPath.row]]
+//        })
       
         return cell
     }
