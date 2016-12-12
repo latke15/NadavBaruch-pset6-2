@@ -19,17 +19,24 @@ class ShabbatTableViewController: UIViewController, UITableViewDelegate, UITable
     var details = [shabbatDetails]()
     
     // Firebase
-    var databaseRef = FIRDatabase.database().reference()
+    var rootRef = FIRDatabase.database().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        rootRef.queryOrdered(byChild: "place").observe(.value, with: { snapshot in
+            var shabbatItems: [shabbatDetails] = []
+            
+            for item in snapshot.children {
+                let shabbatItem = shabbatDetails(snapshot: item as! FIRDataSnapshot)
+                shabbatItems.append(shabbatItem)
+            }
+            
+            self.details = shabbatItems
+            self.shabbatTable.reloadData()
+        })
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -37,12 +44,11 @@ class ShabbatTableViewController: UIViewController, UITableViewDelegate, UITable
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.shabbatTable.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ShabbatCell
+        let shabbos = self.details[indexPath.row]
         
-//        cell.cityLabel = databaseRef.queryOrderedByKey().observe(.childAdded, with: {
-//            snapshot in
-//            
-//            cell.cityLabel = snapshot.value![details[indexPath.row]]
-//        })
+        cell.cityLabel.text = shabbos.place
+        cell.shabbatTime.text = shabbos.shabbatTime
+        cell.havdalaTime.text = shabbos.havdalaTime
       
         return cell
     }
@@ -50,6 +56,8 @@ class ShabbatTableViewController: UIViewController, UITableViewDelegate, UITable
     {
         if editingStyle == .delete
         {
+            let shabbatItem = details[indexPath.row]
+            shabbatItem.ref?.removeValue()
         }
 }
 

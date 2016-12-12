@@ -23,7 +23,7 @@ class SecondViewController: UIViewController {
     var details = [shabbatDetails]()
     
     // Firebase
-    var rootRef = FIRDatabase.database().reference().childByAutoId()
+    var rootRef = FIRDatabase.database().reference()
 //    var placeRef = FIRDatabase.database().reference(withPath: self.place)
     
     override func viewDidLoad() {
@@ -39,13 +39,21 @@ class SecondViewController: UIViewController {
         
         self.details.insert(shabbatDetails(shabbatTime: self.shabbatTime, place: self.place, havdalaTime: self.havdalaTime), at: 0)
         
+        let shabbatItem = shabbatDetails(shabbatTime: self.shabbatTime,
+                                      place: self.place,
+                                      havdalaTime: self.havdalaTime)
+        let shabbatItemRef = self.rootRef.child(place.lowercased())
+        
+        shabbatItemRef.setValue(shabbatItem.toAnyObject())
+
+        
         // Firebase
-        let shabbatTimeRef = self.rootRef.child("shabbat time")
-        shabbatTimeRef.setValue(self.shabbatTime)
-        let havdalaTimeRef = self.rootRef.child("havdala time")
-        havdalaTimeRef.setValue(self.havdalaTime)
-        let placeRef = self.rootRef.child("place")
-        placeRef.setValue(self.place)
+//        let shabbatTimeRef = self.rootRef.child("shabbat time")
+//        shabbatTimeRef.setValue(self.shabbatTime)
+//        let havdalaTimeRef = self.rootRef.child("havdala time")
+//        havdalaTimeRef.setValue(self.havdalaTime)
+//        let placeRef = self.rootRef.child("place")
+//        placeRef.setValue(self.place)
         
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "thirdVCID", sender: sender)
