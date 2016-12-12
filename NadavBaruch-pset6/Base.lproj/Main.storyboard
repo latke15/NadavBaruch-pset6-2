@@ -21,9 +21,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aXW-cl-g12">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aXW-cl-g12">
                                 <rect key="frame" x="0.0" y="64" width="375" height="201"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.03616831408" green="0.77077822370000004" blue="0.94945544000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
@@ -74,14 +73,18 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <variation key="heightClass=compact" axis="horizontal"/>
+                                <variation key="heightClass=compact" axis="vertical"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.036168314080768926" green="0.77077822371667448" blue="0.94945544004440308" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="aXW-cl-g12" secondAttribute="trailing" id="DE5-JG-o9a"/>
                             <constraint firstItem="D8h-DZ-9dy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="209" id="JJY-Et-JfQ"/>
                             <constraint firstAttribute="trailing" secondItem="D8h-DZ-9dy" secondAttribute="trailing" id="N2P-Ru-HCG"/>
+                            <constraint firstItem="aXW-cl-g12" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="TGn-CA-OGF"/>
+                            <constraint firstItem="aXW-cl-g12" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fn3-7m-f4d"/>
                             <constraint firstItem="D8h-DZ-9dy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="iNi-ZW-cvl"/>
+                            <constraint firstItem="D8h-DZ-9dy" firstAttribute="top" secondItem="aXW-cl-g12" secondAttribute="bottom" constant="8" symbolic="YES" id="nQC-39-yNE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="What time is shabbat?" id="J1U-m8-idH"/>
@@ -176,7 +179,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ldt-mf-v9v" id="wIY-kR-OMm">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RiE-RA-yLf">
