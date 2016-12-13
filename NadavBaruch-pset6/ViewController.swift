@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     var shabbatTime: String = ""
     var place: String = ""
     var havdalaTime: String = ""
+    var hebrewParasa: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,11 +71,14 @@ class ViewController: UIViewController {
 //            }
 
             let item0 = items[0] as! NSDictionary
+            let item1 = items[1] as! NSDictionary
             let item2 = items[2] as! NSDictionary
             
             self.shabbatTime = item0.value(forKey: "title") as! String
             self.havdalaTime = item2.value(forKey: "title") as! String
             self.place = myJSON.value(forKey: "title") as! String
+            self.hebrewParasa = item1.value(forKey: "hebrew") as! String
+            print(self.hebrewParasa)
             
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: "secondVCID", sender: sender)
@@ -101,6 +105,7 @@ class ViewController: UIViewController {
                 destination.shabbatTime = self.shabbatTime
                 destination.place = self.place
                 destination.havdalaTime = self.havdalaTime
+                destination.hebrewParasa = self.hebrewParasa
             }
         }
 

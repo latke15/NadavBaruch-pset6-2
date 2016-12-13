@@ -16,6 +16,7 @@ class ShabbatTableViewController: UIViewController, UITableViewDelegate, UITable
     var shabbatTime: String = ""
     var place: [String] = []
     var havdalaTime: String = ""
+    var hebrewParasa: String = ""
     var details = [shabbatDetails]()
     
     // Firebase
@@ -49,6 +50,7 @@ class ShabbatTableViewController: UIViewController, UITableViewDelegate, UITable
         cell.cityLabel.text = shabbos.place
         cell.shabbatTime.text = shabbos.shabbatTime
         cell.havdalaTime.text = shabbos.havdalaTime
+        cell.hebrewParasa.text = shabbos.hebrewParasa
       
         return cell
     }

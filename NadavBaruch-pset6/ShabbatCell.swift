@@ -12,6 +12,7 @@ class ShabbatCell: UITableViewCell {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var shabbatTime: UILabel!
     @IBOutlet weak var havdalaTime: UILabel!
+    @IBOutlet weak var hebrewParasa: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
