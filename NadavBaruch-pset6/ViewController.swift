@@ -19,7 +19,6 @@ class ViewController: UIViewController {
     var shabbatTime: String = ""
     var place: String = ""
     var havdalaTime: String = ""
-    var fireShabbatTime: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +65,9 @@ class ViewController: UIViewController {
             let myJSON = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
 
             let items = myJSON.value(forKey: "items") as! NSArray
+//            if items == nil{
+//                self.showAlertView(title:"Attention!", withDescription:"Try another city!", buttonText:"Understood!")
+//            }
 
             let item0 = items[0] as! NSDictionary
             let item2 = items[2] as! NSDictionary
