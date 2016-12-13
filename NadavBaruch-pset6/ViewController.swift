@@ -86,24 +86,24 @@ class ViewController: UIViewController {
             let item = self.myJSON.value(forKey: "items")
             if item != nil{
                 items = self.myJSON.value(forKey: "items") as! NSArray
+                let item0 = items[0] as! NSDictionary
+                let item1 = items[1] as! NSDictionary
+                let item2 = items[2] as! NSDictionary
+                
+                self.shabbatTime = item0.value(forKey: "title") as! String
+                self.havdalaTime = item2.value(forKey: "title") as! String
+                self.place = self.myJSON.value(forKey: "title") as! String
+                self.hebrewParasa = item1.value(forKey: "hebrew") as! String
+                
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "secondVCID", sender: sender)
+                }
             }
             else{
-                self.showAlertView(title:"Attention!", withDescription:"Try another city!", buttonText:"Understood!")
+                OperationQueue.main.addOperation {
+                    self.showAlertView(title:"Attention!", withDescription:"Try another city!", buttonText:"Understood!")
+                }
             }
-            
-            let item0 = items[0] as! NSDictionary
-            let item1 = items[1] as! NSDictionary
-            let item2 = items[2] as! NSDictionary
-            
-            self.shabbatTime = item0.value(forKey: "title") as! String
-            self.havdalaTime = item2.value(forKey: "title") as! String
-            self.place = self.myJSON.value(forKey: "title") as! String
-            self.hebrewParasa = item1.value(forKey: "hebrew") as! String
-            
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "secondVCID", sender: sender)
-            }
-            
         }
         task.resume()
     }
@@ -135,7 +135,25 @@ class ViewController: UIViewController {
                 destination.hebrewParasa = self.hebrewParasa
             }
         }
-
-
-}
-}
+    }}
+//    override func encodeRestorableState(with coder: NSCoder) {
+//        if let name = nameTextField.text {
+//            coder.encode(name, forKey: "name")
+//        }
+//        super.encodeRestorableState(with: coder)
+//    }
+//
+//    override func decodeRestorableState(with coder: NSCoder) {
+//        if let imageData = coder.decodeObject(forKey: "image") as? Data {
+//            profileImageView.image = UIImage(data: imageData)
+//        }
+//        super.decodeRestorableState(with: coder)
+//    }
+//}
+//extension ViewController: UIViewControllerRestoration{
+//    static func viewControllerWithRestorationIdentifierPath(identifierComponents: [AnyObject],
+//                                                                coder: NSCoder) -> UIViewController? {
+//        let vc = ViewController()
+//        return vc
+//        }
+//    }
