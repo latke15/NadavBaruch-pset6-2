@@ -11,6 +11,7 @@ import Firebase
 import FirebaseDatabase
 
 class ViewController: UIViewController {
+    
     @IBOutlet weak var introduction: UITextView!
     @IBOutlet weak var countryCodeInput: UITextField!
     @IBOutlet weak var cityInput: UITextField!
