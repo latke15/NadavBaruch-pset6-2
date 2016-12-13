@@ -20,12 +20,29 @@ class ViewController: UIViewController {
     var place: String = ""
     var havdalaTime: String = ""
     var hebrewParasa: String = ""
+    var myJSON: NSDictionary = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         introduction.text = "Fill in your landcode and city and get the time shabbat starts at! Please make sure the landcode is in capital letters and the city starts with a capital letter!"
         introduction.isEditable = false
+        
+        // source: http://stackoverflow.com/questions/24126678/close-ios-keyboard-by-touching-anywhere-using-swift
+        // Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
+        
+        // Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        // tap.cancelsTouchesInView = false
+        
+        view.addGestureRecognizer(tap)
+        
+    }
+    // source: http://stackoverflow.com/questions/24126678/close-ios-keyboard-by-touching-anywhere-using-swift
+    // Calls this function when the tap is recognized.
+    func dismissKeyboard() {
+        // Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
 
     @IBAction func checkShabbat(_ sender: Any) {
@@ -63,22 +80,25 @@ class ViewController: UIViewController {
             }
             
             
-            let myJSON = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
-
-            let items = myJSON.value(forKey: "items") as! NSArray
-//            if items == nil{
-//                self.showAlertView(title:"Attention!", withDescription:"Try another city!", buttonText:"Understood!")
-//            }
-
+            self.myJSON = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
+            
+            var items: NSArray = []
+            let item = self.myJSON.value(forKey: "items")
+            if item != nil{
+                items = self.myJSON.value(forKey: "items") as! NSArray
+            }
+            else{
+                self.showAlertView(title:"Attention!", withDescription:"Try another city!", buttonText:"Understood!")
+            }
+            
             let item0 = items[0] as! NSDictionary
             let item1 = items[1] as! NSDictionary
             let item2 = items[2] as! NSDictionary
             
             self.shabbatTime = item0.value(forKey: "title") as! String
             self.havdalaTime = item2.value(forKey: "title") as! String
-            self.place = myJSON.value(forKey: "title") as! String
+            self.place = self.myJSON.value(forKey: "title") as! String
             self.hebrewParasa = item1.value(forKey: "hebrew") as! String
-            print(self.hebrewParasa)
             
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: "secondVCID", sender: sender)
@@ -86,6 +106,13 @@ class ViewController: UIViewController {
             
         }
         task.resume()
+    }
+
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if myJSON.value(forKey: "error") != nil{
+            return false
+        }
+        return true
     }
     
     // Show an alert

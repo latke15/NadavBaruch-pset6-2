@@ -61,7 +61,14 @@ class ShabbatTableViewController: UIViewController, UITableViewDelegate, UITable
             let shabbatItem = details[indexPath.row]
             shabbatItem.ref?.removeValue()
         }
-}
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
+    {
+        return true
+    }
 
     /*
     // MARK: - Navigation
