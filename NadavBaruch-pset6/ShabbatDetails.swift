@@ -2,6 +2,8 @@
 //  ShabbatDetails.swift
 //  NadavBaruch-pset6
 //
+//  All the functions that have to do with the saved details from the API.
+//
 //  Created by Nadav Baruch on 11-12-16.
 //  Copyright © 2016 Nadav Baruch. All rights reserved.
 //

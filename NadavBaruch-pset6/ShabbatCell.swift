@@ -2,6 +2,8 @@
 //  ShabbatCell.swift
 //  NadavBaruch-pset6
 //
+//  The cell used in the ShabbatTableViewController.
+//
 //  Created by Nadav Baruch on 09-12-16.
 //  Copyright © 2016 Nadav Baruch. All rights reserved.
 //

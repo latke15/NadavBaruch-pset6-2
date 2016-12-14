@@ -2,6 +2,8 @@
 //  ViewController.swift
 //  NadavBaruch-pset6
 //
+//  The controller where you can look for a place or go to ShabbatTableViewController.
+//
 //  Created by Nadav Baruch on 06-12-16.
 //  Copyright © 2016 Nadav Baruch. All rights reserved.
 //

@@ -2,6 +2,8 @@
 //  SecondViewController.swift
 //  NadavBaruch-pset6
 //
+//  A view where the results from the ViewController are shown.
+//
 //  Created by Nadav Baruch on 06-12-16.
 //  Copyright © 2016 Nadav Baruch. All rights reserved.
 //

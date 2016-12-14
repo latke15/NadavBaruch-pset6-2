@@ -2,6 +2,8 @@
 //  ShabbatTableViewController.swift
 //  NadavBaruch-pset6
 //
+//  The table where all the details about shabbat are shown.
+//
 //  Created by Nadav Baruch on 09-12-16.
 //  Copyright © 2016 Nadav Baruch. All rights reserved.
 //
