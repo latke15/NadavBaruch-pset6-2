@@ -35,6 +35,7 @@ struct shabbatDetails {
         hebrewParasa = snapshotValue["hebrewParasa"] as! String
         ref = snapshot.ref
     }
+    
     func toAnyObject() -> Any {
         return [
             "shabbatTime": shabbatTime,

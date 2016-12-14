@@ -8,15 +8,12 @@
 
 import UIKit
 import Firebase
+import EventKit
 
 class ShabbatTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var shabbatTable: UITableView!
 
-    // variables
-    var shabbatTime: String = ""
-    var place: [String] = []
-    var havdalaTime: String = ""
-    var hebrewParasa: String = ""
+    // variable
     var details = [shabbatDetails]()
     
     // Firebase
@@ -24,9 +21,8 @@ class ShabbatTableViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
+        // Creating references ordered by place
         rootRef.queryOrdered(byChild: "place").observe(.value, with: { snapshot in
             var shabbatItems: [shabbatDetails] = []
             
@@ -38,19 +34,21 @@ class ShabbatTableViewController: UIViewController, UITableViewDelegate, UITable
             self.details = shabbatItems
             self.shabbatTable.reloadData()
         })
+        
     }
-    
+
+    // Table functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return details.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.shabbatTable.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ShabbatCell
-        let shabbos = self.details[indexPath.row]
+        let shabbatDetails = self.details[indexPath.row]
         
-        cell.cityLabel.text = shabbos.place
-        cell.shabbatTime.text = shabbos.shabbatTime
-        cell.havdalaTime.text = shabbos.havdalaTime
-        cell.hebrewParasa.text = shabbos.hebrewParasa
+        cell.cityLabel.text = shabbatDetails.place
+        cell.shabbatTime.text = shabbatDetails.shabbatTime
+        cell.havdalaTime.text = shabbatDetails.havdalaTime
+        cell.hebrewParasa.text = shabbatDetails.hebrewParasa
       
         return cell
     }
@@ -69,15 +67,4 @@ class ShabbatTableViewController: UIViewController, UITableViewDelegate, UITable
     {
         return true
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

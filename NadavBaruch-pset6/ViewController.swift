@@ -12,11 +12,12 @@ import FirebaseDatabase
 
 class ViewController: UIViewController {
     
+    // Outles
     @IBOutlet weak var introduction: UITextView!
     @IBOutlet weak var countryCodeInput: UITextField!
     @IBOutlet weak var cityInput: UITextField!
     
-    // variables
+    // Variables
     var shabbatTime: String = ""
     var place: String = ""
     var havdalaTime: String = ""
@@ -25,19 +26,14 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
         introduction.text = "Fill in your landcode and city and get the time shabbat starts at! Please make sure the landcode is in capital letters and the city starts with a capital letter!"
         introduction.isEditable = false
         
         // source: http://stackoverflow.com/questions/24126678/close-ios-keyboard-by-touching-anywhere-using-swift
         // Looks for single or multiple taps.
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
-        
-        // Uncomment the line below if you want the tap not not interfere and cancel other interactions.
-        // tap.cancelsTouchesInView = false
-        
         view.addGestureRecognizer(tap)
-        
     }
     // source: http://stackoverflow.com/questions/24126678/close-ios-keyboard-by-touching-anywhere-using-swift
     // Calls this function when the tap is recognized.
@@ -54,6 +50,7 @@ class ViewController: UIViewController {
         let countryCode = countryCodeInput.text
         let city = cityInput.text
         
+        // Load the JSON
         let url = URL(string: "https://www.hebcal.com/shabbat/?cfg=json&city=" + countryCode! + "-" + city! + "&m=50")
         let task = URLSession.shared.dataTask(with: url!) { data, response, error in
             guard error == nil else {
@@ -80,7 +77,7 @@ class ViewController: UIViewController {
                 print("Succeed to maintain data!")
             }
             
-            
+            // Get the JSON
             self.myJSON = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
             
             var items: NSArray = []
@@ -109,6 +106,7 @@ class ViewController: UIViewController {
         task.resume()
     }
 
+    // Check if JSON returns required data
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if myJSON.value(forKey: "error") != nil{
             return false

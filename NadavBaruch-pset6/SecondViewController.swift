@@ -12,12 +12,14 @@ import FirebaseDatabase
 
 class SecondViewController: UIViewController {
     
+    // Outles
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var candleLighting: UILabel!
     @IBOutlet weak var havdalaLabel: UILabel!
     @IBOutlet weak var hebrewParasaLabel: UILabel!
     @IBOutlet weak var addButton: UIButton!
     
+    // Variables
     var shabbatTime: String = ""
     var place: String = ""
     var havdalaTime: String = ""
@@ -57,7 +59,6 @@ class SecondViewController: UIViewController {
                 // check if we go to 3rd VC
                 if segue.identifier == "thirdVCID" {
                     if let destination = segue.destination as? ShabbatTableViewController {
-                        destination.place = [self.place]
                         destination.details = self.details
                     }
                 }
