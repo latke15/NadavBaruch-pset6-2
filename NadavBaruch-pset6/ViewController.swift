@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        introduction.text = "Fill in your landcode and city and get the time shabbat starts at! Please make sure the LANDCODE is in CAPITAL LETTERS and the CITY starts with a CAPITAL LETTER!"
+        introduction.text = "Fill in your two-letter country code and city and get the time shabbat starts at!"
         introduction.isEditable = false
         
         // source: http://stackoverflow.com/questions/24126678/close-ios-keyboard-by-touching-anywhere-using-swift
@@ -53,7 +53,7 @@ class ViewController: UIViewController {
         let city = cityInput.text
         
         // Load the JSON
-        let url = URL(string: "https://www.hebcal.com/shabbat/?cfg=json&city=" + countryCode! + "-" + city! + "&m=50")
+        let url = URL(string: "https://www.hebcal.com/shabbat/?cfg=json&city=" + (countryCode?.uppercased())! + "-" + city! + "&m=50")
         let task = URLSession.shared.dataTask(with: url!) { data, response, error in
             guard error == nil else {
                 self.showAlertView(title:"Attention!", withDescription:"Error occured!", buttonText:"Understood!")

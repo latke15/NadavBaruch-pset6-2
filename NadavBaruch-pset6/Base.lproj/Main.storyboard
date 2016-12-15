@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="Introduction" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aXW-cl-g12">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="Introduction" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aXW-cl-g12">
                                 <rect key="frame" x="0.0" y="64" width="375" height="201"/>
                                 <color key="backgroundColor" red="0.03616831408" green="0.77077822370000004" blue="0.94945544000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -226,7 +226,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ShabbatTable" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SRr-e1-3Br">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.03616831408" green="0.77077822370000004" blue="0.94945544000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -288,10 +288,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.03616831408" green="0.77077822370000004" blue="0.94945544000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="SRr-e1-3Br" firstAttribute="top" secondItem="IRR-Pj-Xae" secondAttribute="top" id="a3A-QJ-oX5"/>
                             <constraint firstItem="SRr-e1-3Br" firstAttribute="leading" secondItem="IRR-Pj-Xae" secondAttribute="leading" id="ir0-ow-ZIT"/>
                             <constraint firstItem="0T0-YJ-fbT" firstAttribute="top" secondItem="SRr-e1-3Br" secondAttribute="bottom" id="rxA-ub-hSl"/>
                             <constraint firstAttribute="trailing" secondItem="SRr-e1-3Br" secondAttribute="trailing" id="ugv-6s-Yy7"/>
-                            <constraint firstItem="SRr-e1-3Br" firstAttribute="top" secondItem="Ew3-3V-QGe" secondAttribute="bottom" id="voV-zU-0LH"/>
                         </constraints>
                     </view>
                     <connections>
@@ -326,6 +326,6 @@
         <image name="TGIS" width="769" height="524"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="e9W-4W-yeS"/>
+        <segue reference="FHZ-RG-NMg"/>
     </inferredMetricsTieBreakers>
 </document>
