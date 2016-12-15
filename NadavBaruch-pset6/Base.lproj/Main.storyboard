@@ -21,55 +21,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="Introduction" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aXW-cl-g12">
-                                <rect key="frame" x="0.0" y="64" width="375" height="201"/>
-                                <color key="backgroundColor" red="0.03616831408" green="0.77077822370000004" blue="0.94945544000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <stackView opaque="NO" contentMode="scaleToFill" restorationIdentifier="StackView" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="D8h-DZ-9dy">
                                 <rect key="frame" x="0.0" y="273" width="375" height="126"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CountryCode" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Country code" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="O10-ut-6ug">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CountryCode" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country code" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="O10-ut-6ug">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="0.60000002379999995" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="wJj-se-jft"/>
                                         </constraints>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.99609345197677612" green="0.99610108137130737" blue="0.99188107252120972" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="City" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="City" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="uiU-dN-HP0">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="City" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="uiU-dN-HP0">
                                         <rect key="frame" x="0.0" y="30" width="375" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="0.60000002379999995" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="yRH-kh-FKi"/>
                                         </constraints>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.99609345197677612" green="0.99610108137130737" blue="0.99188107252120972" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="CheckShabbatTimes" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YrR-ab-Wk6">
                                         <rect key="frame" x="0.0" y="60" width="375" height="33"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Check Shabbat times!">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="0.03616831408" green="0.77077822370000004" blue="0.94945544000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="checkShabbat:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LI5-ma-SyP"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="GoTable" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbS-hj-UMS">
                                         <rect key="frame" x="0.0" y="93" width="375" height="33"/>
+                                        <color key="backgroundColor" red="0.99609345197677612" green="0.99610108137130737" blue="0.99188107252120972" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Go to your table!">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="0.03616831408" green="0.77077822370000004" blue="0.94945544000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="e3L-WX-l26" kind="show" id="FHZ-RG-NMg"/>
                                         </connections>
@@ -81,16 +91,51 @@
                                 <rect key="frame" x="0.0" y="407" width="375" height="260"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="ברוכים הבאים" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sXR-DA-pnP">
+                                <rect key="frame" x="0.0" y="64" width="375" height="47"/>
+                                <color key="backgroundColor" red="0.03616831408" green="0.77077822370000004" blue="0.94945544000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="pdk-e4-Oed"/>
+                                </constraints>
+                                <color key="textColor" red="0.99609345197677612" green="0.99610108137130737" blue="0.99188107252120972" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Welcome" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="B3r-OP-atp">
+                                <rect key="frame" x="0.0" y="119" width="375" height="59"/>
+                                <color key="backgroundColor" red="0.03616831408" green="0.77077822370000004" blue="0.94945544000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="59" id="LAv-mD-UkP"/>
+                                </constraints>
+                                <color key="textColor" red="0.99609345197677612" green="0.99610108137130737" blue="0.99188107252120972" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Instructions: Please fill in your two-letter country code and city to get the time shabbat starts at." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kA3-ha-C6H">
+                                <rect key="frame" x="0.0" y="186" width="375" height="75"/>
+                                <color key="backgroundColor" red="0.03616831408" green="0.77077822370000004" blue="0.94945544000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="I7a-44-Pk9"/>
+                                </constraints>
+                                <color key="textColor" red="0.99609345197677612" green="0.99610108137130737" blue="0.99188107252120972" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.036168314080768926" green="0.77077822371667448" blue="0.94945544004440308" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="aXW-cl-g12" secondAttribute="trailing" id="DE5-JG-o9a"/>
                             <constraint firstItem="D8h-DZ-9dy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="209" id="JJY-Et-JfQ"/>
+                            <constraint firstItem="B3r-OP-atp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="KRJ-pH-aOx"/>
+                            <constraint firstAttribute="trailing" secondItem="sXR-DA-pnP" secondAttribute="trailing" id="LFy-Hd-bd0"/>
                             <constraint firstAttribute="trailing" secondItem="D8h-DZ-9dy" secondAttribute="trailing" id="N2P-Ru-HCG"/>
-                            <constraint firstItem="aXW-cl-g12" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="TGn-CA-OGF"/>
-                            <constraint firstItem="aXW-cl-g12" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fn3-7m-f4d"/>
+                            <constraint firstItem="kA3-ha-C6H" firstAttribute="trailing" secondItem="B3r-OP-atp" secondAttribute="trailing" id="R0l-Kd-J4d"/>
+                            <constraint firstItem="kA3-ha-C6H" firstAttribute="top" secondItem="B3r-OP-atp" secondAttribute="bottom" constant="8" symbolic="YES" id="TJa-05-0bY"/>
+                            <constraint firstItem="sXR-DA-pnP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dFv-xu-Bn0"/>
+                            <constraint firstItem="kA3-ha-C6H" firstAttribute="leading" secondItem="B3r-OP-atp" secondAttribute="leading" id="deN-M3-MpF"/>
                             <constraint firstItem="D8h-DZ-9dy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="iNi-ZW-cvl"/>
-                            <constraint firstItem="D8h-DZ-9dy" firstAttribute="top" secondItem="aXW-cl-g12" secondAttribute="bottom" constant="8" symbolic="YES" id="nQC-39-yNE"/>
+                            <constraint firstItem="B3r-OP-atp" firstAttribute="top" secondItem="sXR-DA-pnP" secondAttribute="bottom" constant="8" symbolic="YES" id="izW-bd-RQm"/>
+                            <constraint firstItem="sXR-DA-pnP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="pTY-vm-BUv"/>
+                            <constraint firstAttribute="trailing" secondItem="B3r-OP-atp" secondAttribute="trailing" id="xyA-so-ptf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="What time is shabbat?" id="J1U-m8-idH"/>
@@ -98,7 +143,6 @@
                     <connections>
                         <outlet property="cityInput" destination="uiU-dN-HP0" id="Mxh-kn-p1V"/>
                         <outlet property="countryCodeInput" destination="O10-ut-6ug" id="CLg-56-i7c"/>
-                        <outlet property="introduction" destination="aXW-cl-g12" id="DWc-Cf-fTW"/>
                         <segue destination="TVv-28-zeT" kind="show" identifier="secondVCID" id="2jl-ZZ-QuM"/>
                     </connections>
                 </viewController>
@@ -236,7 +280,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="ContentView" tableViewCell="ldt-mf-v9v" id="wIY-kR-OMm">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="CityLabelTable" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RiE-RA-yLf">
