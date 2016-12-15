@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        introduction.text = "Fill in your two-letter country code and city and get the time shabbat starts at!"
+        introduction.text = "Instruction: " + "Fill in your two-letter country code and city and get the time shabbat starts at!"
         introduction.isEditable = false
         
         // source: http://stackoverflow.com/questions/24126678/close-ios-keyboard-by-touching-anywhere-using-swift
@@ -37,6 +37,7 @@ class ViewController: UIViewController {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
+    
     // source: http://stackoverflow.com/questions/24126678/close-ios-keyboard-by-touching-anywhere-using-swift
     // Calls this function when the tap is recognized.
     func dismissKeyboard() {
@@ -50,10 +51,13 @@ class ViewController: UIViewController {
         }
         
         let countryCode = countryCodeInput.text
+        let countryCodeNoSpace = countryCode?.replacingOccurrences(of: " ", with: "")
         let city = cityInput.text
+        let cityNoSpace = city?.replacingOccurrences(of: " ", with: "")
+        
         
         // Load the JSON
-        let url = URL(string: "https://www.hebcal.com/shabbat/?cfg=json&city=" + (countryCode?.uppercased())! + "-" + city! + "&m=50")
+        let url = URL(string: "https://www.hebcal.com/shabbat/?cfg=json&city=" + (countryCodeNoSpace?.uppercased())! + "-" + cityNoSpace! + "&m=50")
         let task = URLSession.shared.dataTask(with: url!) { data, response, error in
             guard error == nil else {
                 self.showAlertView(title:"Attention!", withDescription:"Error occured!", buttonText:"Understood!")
@@ -136,25 +140,5 @@ class ViewController: UIViewController {
                 destination.hebrewParasa = self.hebrewParasa
             }
         }
-    }}
-//    override func encodeRestorableState(with coder: NSCoder) {
-//        if let name = nameTextField.text {
-//            coder.encode(name, forKey: "name")
-//        }
-//        super.encodeRestorableState(with: coder)
-//    }
-//
-//    override func decodeRestorableState(with coder: NSCoder) {
-//        if let imageData = coder.decodeObject(forKey: "image") as? Data {
-//            profileImageView.image = UIImage(data: imageData)
-//        }
-//        super.decodeRestorableState(with: coder)
-//    }
-//}
-//extension ViewController: UIViewControllerRestoration{
-//    static func viewControllerWithRestorationIdentifierPath(identifierComponents: [AnyObject],
-//                                                                coder: NSCoder) -> UIViewController? {
-//        let vc = ViewController()
-//        return vc
-//        }
-//    }
+    }
+}
