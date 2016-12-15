@@ -101,7 +101,7 @@ class ViewController: UIViewController {
             }
             else{
                 OperationQueue.main.addOperation {
-                    self.showAlertView(title:"Attention!", withDescription:"Try another city!", buttonText:"Understood!")
+                    self.showAlertView(title:"Attention!", withDescription:"Try different input! The country code or the city is not available.", buttonText:"Understood!")
                 }
             }
         }
