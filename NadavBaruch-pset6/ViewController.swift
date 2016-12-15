@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        introduction.text = "Fill in your landcode and city and get the time shabbat starts at! Please make sure the landcode is in capital letters and the city starts with a capital letter!"
+        introduction.text = "Fill in your landcode and city and get the time shabbat starts at! Please make sure the LANDCODE is in CAPITAL LETTERS and the CITY starts with a CAPITAL LETTER!"
         introduction.isEditable = false
         
         // source: http://stackoverflow.com/questions/24126678/close-ios-keyboard-by-touching-anywhere-using-swift

@@ -77,6 +77,10 @@
                                 </subviews>
                                 <variation key="heightClass=compact" axis="vertical"/>
                             </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SHABBAT" translatesAutoresizingMaskIntoConstraints="NO" id="ahC-sM-lg6">
+                                <rect key="frame" x="0.0" y="407" width="375" height="260"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.036168314080768926" green="0.77077822371667448" blue="0.94945544004440308" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -90,6 +94,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="What time is shabbat?" id="J1U-m8-idH"/>
+                    <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="cityInput" destination="uiU-dN-HP0" id="Mxh-kn-p1V"/>
                         <outlet property="countryCodeInput" destination="O10-ut-6ug" id="CLg-56-i7c"/>
@@ -101,10 +106,10 @@
             </objects>
             <point key="canvasLocation" x="1076" y="138.98050974512745"/>
         </scene>
-        <!--Second View Controller-->
+        <!--Shabbat-->
         <scene sceneID="oSZ-76-C1H">
             <objects>
-                <viewController storyboardIdentifier="Printing" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TVv-28-zeT" customClass="SecondViewController" customModule="NadavBaruch_pset6" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Printing" title="Shabbat" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TVv-28-zeT" customClass="SecondViewController" customModule="NadavBaruch_pset6" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NNg-CW-rPD"/>
                         <viewControllerLayoutGuide type="bottom" id="66z-pY-tE3"/>
@@ -167,6 +172,10 @@
                                     <action selector="addToFirebase:" destination="TVv-28-zeT" eventType="touchUpInside" id="HnF-qo-QLS"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TGIS" translatesAutoresizingMaskIntoConstraints="NO" id="Abi-76-4fk">
+                                <rect key="frame" x="0.0" y="358" width="375" height="309"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.03616831408" green="0.77077822370000004" blue="0.94945544000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -204,10 +213,10 @@
             </objects>
             <point key="canvasLocation" x="1936.8" y="138.98050974512745"/>
         </scene>
-        <!--Shabbat Table View Controller-->
+        <!--Shabbat table-->
         <scene sceneID="X1d-4b-6uw">
             <objects>
-                <viewController storyboardIdentifier="Table" useStoryboardIdentifierAsRestorationIdentifier="YES" id="e3L-WX-l26" customClass="ShabbatTableViewController" customModule="NadavBaruch_pset6" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Table" title="Shabbat table" useStoryboardIdentifierAsRestorationIdentifier="YES" id="e3L-WX-l26" customClass="ShabbatTableViewController" customModule="NadavBaruch_pset6" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ew3-3V-QGe"/>
                         <viewControllerLayoutGuide type="bottom" id="0T0-YJ-fbT"/>
@@ -227,7 +236,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="ContentView" tableViewCell="ldt-mf-v9v" id="wIY-kR-OMm">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="CityLabelTable" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RiE-RA-yLf">
@@ -298,7 +307,7 @@
             <objects>
                 <navigationController storyboardIdentifier="NavController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="y1K-pl-6bJ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="NavBar" id="ULe-LC-6uu">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" restorationIdentifier="NavBar" id="ULe-LC-6uu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -312,6 +321,10 @@
             <point key="canvasLocation" x="18" y="139"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="SHABBAT" width="400" height="296"/>
+        <image name="TGIS" width="769" height="524"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="FHZ-RG-NMg"/>
     </inferredMetricsTieBreakers>
