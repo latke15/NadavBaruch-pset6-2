@@ -53,7 +53,8 @@ class ViewController: UIViewController {
         let url = URL(string: "https://www.hebcal.com/shabbat/?cfg=json&city=" + (countryCodeNoSpace?.uppercased())! + "-" + cityNoSpace! + "&m=50")
         let task = URLSession.shared.dataTask(with: url!) { data, response, error in
             guard error == nil else {
-                self.showAlertView(title:"Attention!", withDescription:"Error occured!", buttonText:"Understood!")
+                self.showAlertView(title:"Attention!", withDescription:"Error occured!",
+                              buttonText:"Understood!")
                 print("error!")
                 return
             }
@@ -62,45 +63,45 @@ class ViewController: UIViewController {
                 print("Data is empty")
                 return
             }
+
+        // Get status code
+        let httpResponse = response as! HTTPURLResponse
+        if httpResponse.statusCode == 400{
+            self.showAlertView(title:"Attention!", withDescription:"Bad request, please contact the administrator.", buttonText:"Understood!")
+        }
+        if httpResponse.statusCode == 500{
+            self.showAlertView(title:"Attention!", withDescription:"Internal server error, please contact the administrator.", buttonText:"Understood!")
+        }
+        
+        if httpResponse.statusCode == 200{
+            print("Succeed to maintain data!")
+        }
             
-            // Get status code
-            let httpResponse = response as! HTTPURLResponse
-            if httpResponse.statusCode == 400{
-                self.showAlertView(title:"Attention!", withDescription:"Bad request, please contact the administrator.", buttonText:"Understood!")
-            }
-            if httpResponse.statusCode == 500{
-                self.showAlertView(title:"Attention!", withDescription:"Internal server error, please contact the administrator.", buttonText:"Understood!")
-            }
+        // Get the JSON
+        self.myJSON = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
+        
+        var items: NSArray = []
+        let item = self.myJSON.value(forKey: "items")
+        if item != nil{
+            items = self.myJSON.value(forKey: "items") as! NSArray
+            let item0 = items[0] as! NSDictionary
+            let item1 = items[1] as! NSDictionary
+            let item2 = items[2] as! NSDictionary
             
-            if httpResponse.statusCode == 200{
-                print("Succeed to maintain data!")
-            }
+            self.defaults.set(item0.value(forKey: "title"), forKey: "shabbesTime")
+            self.defaults.set(item2.value(forKey: "title"), forKey: "havdalaTime")
+            self.defaults.set(self.myJSON.value(forKey: "title"), forKey: "place")
+            self.defaults.set(item1.value(forKey: "hebrew"), forKey: "hebrewParasa")
             
-            // Get the JSON
-            self.myJSON = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
-            
-            var items: NSArray = []
-            let item = self.myJSON.value(forKey: "items")
-            if item != nil{
-                items = self.myJSON.value(forKey: "items") as! NSArray
-                let item0 = items[0] as! NSDictionary
-                let item1 = items[1] as! NSDictionary
-                let item2 = items[2] as! NSDictionary
-                
-                self.defaults.set(item0.value(forKey: "title"), forKey: "shabbesTime")
-                self.defaults.set(item2.value(forKey: "title"), forKey: "havdalaTime")
-                self.defaults.set(self.myJSON.value(forKey: "title"), forKey: "place")
-                self.defaults.set(item1.value(forKey: "hebrew"), forKey: "hebrewParasa")
-                
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "secondVCID", sender: sender)
-                }
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "secondVCID", sender: sender)
             }
-            else{
-                OperationQueue.main.addOperation {
-                    self.showAlertView(title:"Attention!", withDescription:"Try different input! The country code or the city is not available.", buttonText:"Understood!")
-                }
+        }
+        else{
+            OperationQueue.main.addOperation {
+                self.showAlertView(title:"Attention!", withDescription:"Try different input! The country code or the city is not available.", buttonText:"Understood!")
             }
+        }
         }
         task.resume()
     }
@@ -114,8 +115,7 @@ class ViewController: UIViewController {
     }
     
     // Show an alert
-    func showAlertView(title: String, withDescription description: String, buttonText text: String) {
-        let alertController = UIAlertController(title: title, message: description, preferredStyle: .alert)
+    func showAlertView(title: String, withDescription description: String, buttonText text: String) {        let alertController = UIAlertController(title: title, message: description, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: text, style: .default, handler: nil)
         alertController.addAction(alertAction)
         present(alertController, animated: true, completion: nil)

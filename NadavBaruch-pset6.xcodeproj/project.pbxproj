@@ -71,19 +71,59 @@
 		0285A5991DF6D9A000B81729 /* NadavBaruch-pset6 */ = {
 			isa = PBXGroup;
 			children = (
-				02FEE3B61DF6E52A002B4D69 /* GoogleService-Info.plist */,
-				0285A59A1DF6D9A000B81729 /* AppDelegate.swift */,
+				02F8AF931E04199A00C2148B /* Storyboards */,
+				02F8AF921E04196B00C2148B /* ViewControllers */,
+				02F8AF951E041E2B00C2148B /* Cells */,
+				02F8AF941E041E2300C2148B /* Models */,
+				02F8AF961E041E3500C2148B /* Others */,
+			);
+			path = "NadavBaruch-pset6";
+			sourceTree = "<group>";
+		};
+		02F8AF921E04196B00C2148B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
 				0285A59C1DF6D9A000B81729 /* ViewController.swift */,
 				02FEE3B81DF6F5F7002B4D69 /* SecondViewController.swift */,
 				02FEE3C01DFACCFA002B4D69 /* ShabbatTableViewController.swift */,
-				02FEE3BE1DFAB5E0002B4D69 /* ShabbatCell.swift */,
-				02C304581DFD854700022742 /* ShabbatDetails.swift */,
-				0285A59E1DF6D9A000B81729 /* Main.storyboard */,
-				0285A5A11DF6D9A000B81729 /* Assets.xcassets */,
-				0285A5A31DF6D9A000B81729 /* LaunchScreen.storyboard */,
-				0285A5A61DF6D9A000B81729 /* Info.plist */,
 			);
-			path = "NadavBaruch-pset6";
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		02F8AF931E04199A00C2148B /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				0285A59E1DF6D9A000B81729 /* Main.storyboard */,
+				0285A5A31DF6D9A000B81729 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		02F8AF941E041E2300C2148B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				02C304581DFD854700022742 /* ShabbatDetails.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		02F8AF951E041E2B00C2148B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				02FEE3BE1DFAB5E0002B4D69 /* ShabbatCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		02F8AF961E041E3500C2148B /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				02FEE3B61DF6E52A002B4D69 /* GoogleService-Info.plist */,
+				0285A5A11DF6D9A000B81729 /* Assets.xcassets */,
+				0285A5A61DF6D9A000B81729 /* Info.plist */,
+				0285A59A1DF6D9A000B81729 /* AppDelegate.swift */,
+			);
+			name = Others;
 			sourceTree = "<group>";
 		};
 		6A513E1DFFA80E7FE8326D48 /* Pods */ = {
