@@ -28,11 +28,20 @@ class SecondViewController: UIViewController {
     var hebrewParasa: String = ""
     var details = [shabbatDetails]()
     
+    // User defaults
+    let defaults = UserDefaults.standard
+    
     // Firebase
     var rootRef = FIRDatabase.database().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        shabbatTime = defaults.string(forKey: "shabbesTime")!
+        havdalaTime = defaults.string(forKey: "havdalaTime")!
+        place = defaults.string(forKey: "place")!
+        hebrewParasa = defaults.string(forKey: "hebrewParasa")!
+        
         // Do any additional setup after loading the view.
         candleLighting.text = shabbatTime
         placeLabel.text = place

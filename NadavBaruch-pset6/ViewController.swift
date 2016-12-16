@@ -14,6 +14,9 @@ import FirebaseDatabase
 
 class ViewController: UIViewController {
     
+    // User defaults
+    let defaults = UserDefaults.standard
+    
     // Outlets
     @IBOutlet weak var countryCodeInput: UITextField!
     @IBOutlet weak var cityInput: UITextField!
@@ -95,6 +98,11 @@ class ViewController: UIViewController {
                 self.place = self.myJSON.value(forKey: "title") as! String
                 self.hebrewParasa = item1.value(forKey: "hebrew") as! String
                 
+                self.defaults.set(item0.value(forKey: "title"), forKey: "shabbesTime")
+                self.defaults.set(item2.value(forKey: "title"), forKey: "havdalaTime")
+                self.defaults.set(self.myJSON.value(forKey: "title"), forKey: "place")
+                self.defaults.set(item1.value(forKey: "hebrew"), forKey: "hebrewParasa")
+                
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: "secondVCID", sender: sender)
                 }
@@ -122,19 +130,5 @@ class ViewController: UIViewController {
         let alertAction = UIAlertAction(title: text, style: .default, handler: nil)
         alertController.addAction(alertAction)
         present(alertController, animated: true, completion: nil)
-    }
-    
-    // segue contents to the rawtext variable in the the next view
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        // check if we go to 2nd VC
-        if segue.identifier == "secondVCID" {
-            if let destination = segue.destination as? SecondViewController {
-                destination.shabbatTime = self.shabbatTime
-                destination.place = self.place
-                destination.havdalaTime = self.havdalaTime
-                destination.hebrewParasa = self.hebrewParasa
-            }
-        }
     }
 }
