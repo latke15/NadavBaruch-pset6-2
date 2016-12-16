@@ -14,8 +14,7 @@ import FirebaseDatabase
 
 class ViewController: UIViewController {
     
-    // Outles
-    @IBOutlet weak var introduction: UITextView!
+    // Outlets
     @IBOutlet weak var countryCodeInput: UITextField!
     @IBOutlet weak var cityInput: UITextField!
     

@@ -14,7 +14,7 @@ import FirebaseDatabase
 
 class SecondViewController: UIViewController {
     
-    // Outles
+    // Outlets
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var candleLighting: UILabel!
     @IBOutlet weak var havdalaLabel: UILabel!

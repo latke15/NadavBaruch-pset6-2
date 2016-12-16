@@ -91,7 +91,7 @@
                                 <rect key="frame" x="0.0" y="407" width="375" height="260"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="ברוכים הבאים" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sXR-DA-pnP">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="ברוכים הבאים" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sXR-DA-pnP" userLabel="HebrewWelcome">
                                 <rect key="frame" x="0.0" y="64" width="375" height="47"/>
                                 <color key="backgroundColor" red="0.03616831408" green="0.77077822370000004" blue="0.94945544000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -101,7 +101,7 @@
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Welcome" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="B3r-OP-atp">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Welcome" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="B3r-OP-atp" userLabel="Welcome">
                                 <rect key="frame" x="0.0" y="119" width="375" height="59"/>
                                 <color key="backgroundColor" red="0.03616831408" green="0.77077822370000004" blue="0.94945544000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -111,7 +111,7 @@
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Instructions: Please fill in your two-letter country code and city to get the time shabbat starts at." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kA3-ha-C6H">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Instructions: Please fill in your two-letter country code and city to get the time shabbat starts at." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kA3-ha-C6H" userLabel="Instruction">
                                 <rect key="frame" x="0.0" y="186" width="375" height="75"/>
                                 <color key="backgroundColor" red="0.03616831408" green="0.77077822370000004" blue="0.94945544000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -164,54 +164,83 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="PlaceLabel" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XiE-dq-Dk6">
                                 <rect key="frame" x="0.0" y="72" width="375" height="21"/>
+                                <color key="backgroundColor" red="0.03616831408" green="0.77077822370000004" blue="0.94945544000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="375" id="afB-15-hI3"/>
                                     <constraint firstAttribute="height" constant="21" id="yYq-kn-gKs"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.99609345197677612" green="0.99610108137130737" blue="0.99188107252120972" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="CandleLighting" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3p-Xb-V0w">
                                 <rect key="frame" x="0.0" y="137" width="375" height="21"/>
+                                <color key="backgroundColor" red="0.03616831408" green="0.77077822370000004" blue="0.94945544000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="375" id="45g-SF-ghy"/>
                                     <constraint firstAttribute="height" constant="21" id="5Zu-mW-o7L"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.99609345197677612" green="0.99610108137130737" blue="0.99188107252120972" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="HavdalaLabel" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWq-oe-V4F">
                                 <rect key="frame" x="0.0" y="202" width="375" height="21"/>
+                                <color key="backgroundColor" red="0.03616831408" green="0.77077822370000004" blue="0.94945544000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="ruC-dQ-3gj"/>
                                     <constraint firstAttribute="width" constant="375" id="vBI-Tz-ujz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.99609345197677612" green="0.99610108137130737" blue="0.99188107252120972" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="HebrewParasaLabel" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0c-N5-pHm">
                                 <rect key="frame" x="0.0" y="267" width="375" height="21"/>
+                                <color key="backgroundColor" red="0.03616831408" green="0.77077822370000004" blue="0.94945544000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Clx-cf-DCC"/>
                                     <constraint firstAttribute="width" constant="375" id="cIT-Dy-QNP"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.99609345197677612" green="0.99610108137130737" blue="0.99188107252120972" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="AddButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dM-l3-wsQ">
                                 <rect key="frame" x="0.0" y="317" width="375" height="33"/>
+                                <color key="backgroundColor" red="0.99609345197677612" green="0.99610108137130737" blue="0.99188107252120972" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="375" id="Jxz-rH-TMy"/>
                                     <constraint firstAttribute="height" constant="33" id="faW-4P-S04"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <state key="normal" title="Add times to your table!">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.03616831408" green="0.77077822370000004" blue="0.94945544000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="addToFirebase:" destination="TVv-28-zeT" eventType="touchUpInside" id="HnF-qo-QLS"/>
                                 </connections>
@@ -370,6 +399,6 @@
         <image name="TGIS" width="769" height="524"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FHZ-RG-NMg"/>
+        <segue reference="e9W-4W-yeS"/>
     </inferredMetricsTieBreakers>
 </document>
