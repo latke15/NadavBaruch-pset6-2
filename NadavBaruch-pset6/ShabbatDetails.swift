@@ -21,7 +21,6 @@ struct shabbatDetails {
     let ref: FIRDatabaseReference?
     
     init(shabbatTime: String, place: String, havdalaTime: String, hebrewParasa: String){
-        
         self.shabbatTime = shabbatTime
         self.place = place
         self.havdalaTime = havdalaTime

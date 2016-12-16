@@ -22,10 +22,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var cityInput: UITextField!
     
     // Variables
-    var shabbatTime: String = ""
-    var place: String = ""
-    var havdalaTime: String = ""
-    var hebrewParasa: String = ""
     var myJSON: NSDictionary = [:]
 
     override func viewDidLoad() {
@@ -92,11 +88,6 @@ class ViewController: UIViewController {
                 let item0 = items[0] as! NSDictionary
                 let item1 = items[1] as! NSDictionary
                 let item2 = items[2] as! NSDictionary
-                
-                self.shabbatTime = item0.value(forKey: "title") as! String
-                self.havdalaTime = item2.value(forKey: "title") as! String
-                self.place = self.myJSON.value(forKey: "title") as! String
-                self.hebrewParasa = item1.value(forKey: "hebrew") as! String
                 
                 self.defaults.set(item0.value(forKey: "title"), forKey: "shabbesTime")
                 self.defaults.set(item2.value(forKey: "title"), forKey: "havdalaTime")
