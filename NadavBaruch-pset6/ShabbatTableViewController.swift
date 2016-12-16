@@ -32,11 +32,9 @@ class ShabbatTableViewController: UIViewController, UITableViewDelegate, UITable
                 let shabbatItem = shabbatDetails(snapshot: item as! FIRDataSnapshot)
                 shabbatItems.append(shabbatItem)
             }
-            
             self.details = shabbatItems
             self.shabbatTable.reloadData()
         })
-        
     }
 
     // Table functions

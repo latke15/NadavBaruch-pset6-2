@@ -47,7 +47,6 @@ class SecondViewController: UIViewController {
         placeLabel.text = place
         havdalaLabel.text = havdalaTime
         hebrewParasaLabel.text = hebrewParasa
-        
     }
     
     @IBAction func addToFirebase(_ sender: Any) {
@@ -61,7 +60,6 @@ class SecondViewController: UIViewController {
         let shabbatItemRef = self.rootRef.child(place.lowercased())
 
         shabbatItemRef.setValue(shabbatItem.toAnyObject())
-
         
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "thirdVCID", sender: sender)

@@ -32,7 +32,6 @@ class ViewController: UIViewController {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
-    
     // source: http://stackoverflow.com/questions/24126678/close-ios-keyboard-by-touching-anywhere-using-swift
     // Calls this function when the tap is recognized.
     func dismissKeyboard() {
@@ -49,7 +48,6 @@ class ViewController: UIViewController {
         let countryCodeNoSpace = countryCode?.replacingOccurrences(of: " ", with: "")
         let city = cityInput.text
         let cityNoSpace = city?.replacingOccurrences(of: " ", with: "")
-        
         
         // Load the JSON
         let url = URL(string: "https://www.hebcal.com/shabbat/?cfg=json&city=" + (countryCodeNoSpace?.uppercased())! + "-" + cityNoSpace! + "&m=50")
